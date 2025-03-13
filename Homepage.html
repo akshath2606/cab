@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cruise Cabs - Book a Ride</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=UberMove:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script type="module" src="firebaseauth.js"></script>
+    <link rel="icon" type="image/png" href="favicon.png">
+
+</head>
+<body>
+    <!-- Add this right after the opening <body> tag -->
+    <div class="sidebar" id="sidebar">
+        <div class="sidebar-header">
+            <button class="close-sidebar">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        <div class="sidebar-content">
+            <div class="user-info">
+                <i class="fas fa-user-circle user-avatar"></i>
+                <div class="user-details">
+                    <h3>Your Name</h3>
+                    <a href="profile.html" class="view-account-link">View account</a>
+                </div>
+            </div>
+            <nav class="sidebar-nav">
+                <div class="nav-section">
+                    <a href="ride-history.html" class="nav-item">
+                        <i class="fas fa-clock-rotate-left"></i>
+                        <span>Trip History</span>
+                    </a>
+                    <a href="payment-methods.html" class="nav-item">
+                        <i class="fas fa-credit-card"></i>
+                        <span>Payment Methods</span>
+                    </a>
+                    <a href="Settings.html" class="nav-item">
+                        <i class="fas fa-cog"></i>
+                        <span>Settings</span>
+                    </a>
+                </div>
+                <div class="nav-section">
+                    <a href="help.html" class="nav-item">
+                        <i class="fas fa-question-circle"></i>
+                        <span>Help</span>
+                    </a>
+                    <a href="about.html" class="nav-item">
+                        <i class="fas fa-info-circle"></i>
+                        <span>About</span>
+                    </a>
+                    <a href="#" class="nav-item logout">
+                        <i class="fas fa-sign-out-alt"></i>
+                        <span>Log out</span>
+                    </a>
+                </div>
+            </nav>
+        </div>
+    </div>
+
+    <!-- Add overlay div for sidebar background -->
+    <div class="sidebar-overlay" id="sidebar-overlay"></div>
+
+    <!-- Header -->
+    <header>
+        <div class="header-left">
+            <div class="menu-toggle" id="sidebar-toggle">
+                <i class="fas fa-bars"></i>
+            </div>
+            <div class="logo">
+                <span class="logo-text">Cruise Cabs</span>
+            </div>
+        </div>
+        
+        <nav class="header-nav">
+            <div class="nav-item-group">
+                <a href="#" class="nav-item active">Ride</a>
+                <a href="#" class="nav-item">Business</a>
+            </div>
+        </nav>
+
+        <div class="header-right">
+            <a href="login.html" class="auth-nav-btn">Log in</a>
+            <a href="signup2.html" class="auth-nav-btn signup">Sign up</a>
+            <a href="profile.html" class="nav-button" id="profile-button">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-user-circle"></i>
+            </a>
+        </div>
+    </header>
+
+    <!-- Main Section -->
+    <main class="main-container">
+        <div class="left-panel">
+            <h1>Request a ride now</h1>
+            <form id="booking-form" class="ride-form">
+                <div class="location-input-group">
+                    <i class="fas fa-circle pickup-icon"></i>
+                    <input type="text" id="pickup-location" placeholder="Enter pickup location" required>
+                    <button type="button" class="map-btn" onclick="showMapModal('pickup')">
+                        <i class="fas fa-map-marker-alt"></i>
+                    </button>
+                </div>
+                <div class="location-input-group">
+                    <i class="fas fa-square destination-icon"></i>
+                    <input type="text" id="destination" placeholder="Enter destination" required>
+                    <button type="button" class="map-btn" onclick="showMapModal('destination')">
+                        <i class="fas fa-map-marker-alt"></i>
+                    </button>
+                </div>
+                <button type="submit" class="request-ride-btn">Request Now</button>
+                
+                <button id="scheduleLaterBtn">Schedule Later</button>
+
+                <!-- Add a hidden date-time picker -->
+                <input type="datetime-local" id="scheduleDateTime" style="display: none;">
+                            </form>
+        </div>
+        
+        <div class="right-panel">
+            <div id="map" class="main-map"></div>
+            <!-- Add video container below map -->
+            <div class="video-container">
+                <video autoplay muted loop id="myVideo">
+                    <source src="3773324-hd_1920_1080_25fps.mp4" type="video/mp4">
+                </video>
+            </div>
+        </div>
+    </main>
+
+    <!-- Ride Options Modal -->
+    <div id="ride-options" class="ride-options-modal">
+        <div class="ride-options-content">
+            <h3>Choose a ride</h3>
+            <div class="ride-cards">
+                <div class="ride-card" data-type="Bike">
+                    <i class="fas fa-motorcycle"></i>
+                    <div class="ride-details">
+                        <h4>Bike</h4>
+                        <p>Affordable bike rides</p>
+                        <span class="price">Rs 65.00</span>
+                    </div>
+                </div>
+                <div class="ride-card" data-type="Economy">
+                    <i class="fas fa-car"></i>
+                    <div class="ride-details">
+                        <h4>Economy</h4>
+                        <p>Affordable everyday rides</p>
+                        <span class="price">Rs 125.00</span>
+                    </div>
+                </div>
+                <div class="ride-card" data-type="Sedan">
+                    <i class="fas fa-car-side"></i>
+                    <div class="ride-details">
+                        <h4>Sedan</h4>
+                        <p>Comfortable rides with extra space</p>
+                        <span class="price">Rs 335.00</span>
+                    </div>
+                </div>
+                <div class="ride-card" data-type="Luxury">
+                    <i class="fas fa-car-alt"></i>
+                    <div class="ride-details">
+                        <h4>Luxury</h4>
+                        <p>Premium rides in high-end cars</p>
+                        <span class="price">Rs 550.00</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Map Modal -->
+    <div id="map-modal" class="map-modal">
+        <div class="map-modal-content">
+            <span class="close-map">&times;</span>
+            <div id="modal-map"></div>
+            <button id="confirm-location" class="submit-btn">Confirm Location</button>
+        </div>
+    </div>
+
+    <!-- Add this after the ride-options modal -->
+    <div id="ride-confirmation-modal" class="ride-confirmation-modal">
+        <div class="confirmation-content">
+            <div class="driver-info">
+                <div class="driver-header">
+                    <h3>Your ride is confirmed!</h3>
+                    <button class="close-confirmation">&times;</button>
+                </div>
+                <div class="driver-details">
+                    <div class="driver-avatar">
+                        <i class="fas fa-user-circle"></i>
+                    </div>
+                    <div class="driver-text">
+                        <h4 id="driver-name">Loading driver...</h4>
+                        <p id="car-details">Loading vehicle details...</p>
+                    </div>
+                </div>
+            </div>
+            <div class="ride-info">
+                <div class="location-info">
+                    <div class="pickup">
+                        <i class="fas fa-circle"></i>
+                        <p id="pickup-text">Loading pickup...</p>
+                    </div>
+                    <div class="destination">
+                        <i class="fas fa-square"></i>
+                        <p id="destination-text">Loading destination...</p>
+                    </div>
+                </div>
+                <div class="price-info">
+                    <h4>Fare</h4>
+                    <p id="ride-price">Loading price...</p>
+                </div>
+            </div>
+            <button id="start-ride-btn" class="start-ride-btn">Start Ride</button>
+        </div>
+    </div>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <script src="script.js"></script>
+</body>
+</html>

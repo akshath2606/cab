@@ -1,0 +1,338 @@
+/* Global Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    line-height: 1.6;
+    color: #333;
+    background-color: #fff;
+}
+
+.container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+h1, h2, h3 {
+    font-weight: 700;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+/* Header */
+.header {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    background-color: #fff;
+    border-bottom: 1px solid #eaeaea;
+    padding: 16px 0;
+}
+
+.back-link {
+    display: flex;
+    align-items: center;
+    color: #000;
+    font-weight: 500;
+}
+
+.back-link i {
+    margin-right: 8px;
+    font-size: 14px;
+}
+
+.back-link:hover {
+    opacity: 0.8;
+}
+
+/* Hero Section */
+.hero {
+    background-color: #000;
+    color: #fff;
+    padding: 80px 0;
+}
+
+.hero h1 {
+    font-size: 48px;
+    margin-bottom: 24px;
+}
+
+.hero p {
+    font-size: 20px;
+    max-width: 600px;
+    line-height: 1.5;
+    color: #ccc;
+}
+
+/* Mission Section */
+.mission {
+    padding: 64px 0;
+}
+
+.mission h2 {
+    font-size: 32px;
+    margin-bottom: 40px;
+}
+
+.mission-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 32px;
+}
+
+.mission-text p {
+    margin-bottom: 16px;
+    font-size: 18px;
+    color: #555;
+    line-height: 1.6;
+}
+
+.mission-image {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.mission-image img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    object-fit: cover;
+}
+
+/* Features Section */
+.features {
+    background-color: #f9f9f9;
+    padding: 64px 0;
+}
+
+.features h2 {
+    font-size: 32px;
+    text-align: center;
+    margin-bottom: 48px;
+}
+
+.features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 32px;
+}
+
+.feature-card {
+    background-color: #fff;
+    padding: 24px;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+}
+
+.feature-card i {
+    font-size: 40px;
+    margin-bottom: 16px;
+    color: #000;
+}
+
+.feature-card h3 {
+    font-size: 20px;
+    margin-bottom: 8px;
+}
+
+.feature-card p {
+    color: #666;
+}
+
+/* Team Section */
+.team {
+    padding: 64px 0;
+}
+
+.team h2 {
+    font-size: 32px;
+    margin-bottom: 40px;
+}
+
+.team-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 32px;
+}
+
+.team-member {
+    text-align: center;
+}
+
+.member-image {
+    width: 160px;
+    height: 160px;
+    border-radius: 50%;
+    overflow: hidden;
+    margin: 0 auto 16px;
+}
+
+.member-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.team-member h3 {
+    font-size: 20px;
+    margin-bottom: 4px;
+}
+
+.team-member p {
+    color: #666;
+}
+
+/* Contact Section */
+.contact {
+    background-color: #000;
+    color: #fff;
+    padding: 64px 0;
+}
+
+.contact-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 32px;
+}
+
+.contact h2 {
+    font-size: 32px;
+    margin-bottom: 24px;
+}
+
+.contact-info p {
+    font-size: 18px;
+    margin-bottom: 24px;
+    color: #ccc;
+    line-height: 1.6;
+}
+
+.contact-details p {
+    margin-bottom: 16px;
+    display: flex;
+    align-items: center;
+}
+
+.contact-details span {
+    font-weight: 600;
+    margin-right: 8px;
+}
+
+.contact-details a {
+    color: #ccc;
+}
+
+.contact-details a:hover {
+    color: #fff;
+}
+
+.contact-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.btn {
+    display: inline-block;
+    background-color: #fff;
+    color: #000;
+    padding: 12px 32px;
+    border-radius: 50px;
+    font-weight: 600;
+    transition: background-color 0.3s;
+}
+
+.btn:hover {
+    background-color: #eaeaea;
+}
+
+/* Footer */
+.footer {
+    background-color: #fff;
+    border-top: 1px solid #eaeaea;
+    padding: 32px 0;
+}
+
+.footer-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.copyright {
+    color: #666;
+    margin-bottom: 16px;
+}
+
+.footer-links {
+    display: flex;
+    gap: 24px;
+}
+
+.footer-links a {
+    color: #666;
+}
+
+.footer-links a:hover {
+    color: #000;
+}
+
+/* Responsive Styles */
+@media (min-width: 768px) {
+    .footer-content {
+        flex-direction: row;
+    }
+    
+    .copyright {
+        margin-bottom: 0;
+    }
+}
+
+@media (max-width: 768px) {
+    .mission-content,
+    .contact-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .hero h1 {
+        font-size: 36px;
+    }
+    
+    .mission-image {
+        order: -1;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero {
+        padding: 60px 0;
+    }
+    
+    .hero h1 {
+        font-size: 32px;
+    }
+    
+    .hero p,
+    .mission-text p {
+        font-size: 16px;
+    }
+    
+    section {
+        padding: 40px 0;
+    }
+    
+    h2 {
+        font-size: 28px;
+    }
+}

@@ -1,0 +1,141 @@
+.ride-history-container {
+    max-width: 800px;
+    margin: 84px auto 40px;
+    padding: 0 20px;
+}
+
+.history-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 32px;
+}
+
+.history-header h1 {
+    font-size: 32px;
+    color: #333;
+}
+
+.history-filters select {
+    padding: 8px 16px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.rides-list {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.ride-card {
+    background: white;
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.ride-header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 16px;
+}
+
+.ride-date {
+    color: #666;
+    font-size: 14px;
+}
+
+.ride-price {
+    font-weight: 600;
+    font-size: 18px;
+}
+
+.ride-details {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 12px;
+    margin-bottom: 16px;
+}
+
+.location-markers {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+}
+
+.location-markers::before {
+    content: '';
+    width: 2px;
+    height: 24px;
+    background: #ddd;
+    margin: 4px 0;
+}
+
+.location-marker {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    border: 2px solid #000;
+}
+
+.location-marker.destination {
+    background: #000;
+}
+
+.locations {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+}
+
+.location-text {
+    font-size: 14px;
+    color: #333;
+}
+
+.ride-info {
+    display: flex;
+    gap: 24px;
+    padding-top: 16px;
+    border-top: 1px solid #eee;
+}
+
+.info-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: #666;
+    font-size: 14px;
+}
+
+.no-rides {
+    text-align: center;
+    padding: 48px 0;
+    color: #666;
+}
+
+.no-rides i {
+    font-size: 48px;
+    margin-bottom: 16px;
+}
+
+@media (max-width: 768px) {
+    .history-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 16px;
+    }
+
+    .history-header h1 {
+        font-size: 24px;
+    }
+
+    .ride-info {
+        flex-direction: column;
+        gap: 12px;
+    }
+} 

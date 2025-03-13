@@ -1,0 +1,105 @@
+/* Uber-style Help & Support Page */
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #ffffff;
+    color: #000000;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background-color: #f8f8f8;
+    padding: 20px;
+    text-align: center;
+    font-size: 24px;
+    font-weight: bold;
+    border-bottom: 1px solid #ddd;
+    position: relative;
+}
+
+#back-button {
+    position: absolute;
+    left: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+#back-button i {
+    color: #000;
+}
+
+.help-container {
+    max-width: 600px;
+    margin: 40px auto;
+    padding: 20px;
+    background: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.faq-section, .contact-section {
+    padding: 20px;
+    border-bottom: 1px solid #ddd;
+}
+
+.faq-section h2, .contact-section h2 {
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+.faq-item {
+    margin-bottom: 15px;
+}
+
+.faq-item h3 {
+    font-size: 16px;
+    margin-bottom: 5px;
+}
+
+.faq-item p {
+    font-size: 14px;
+    color: #555;
+}
+
+.contact-options {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.contact-card {
+    background: #f8f8f8;
+    padding: 15px;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.contact-card i {
+    font-size: 20px;
+    color: #000;
+}
+
+.contact-card h3 {
+    font-size: 16px;
+    margin: 0;
+}
+
+.contact-card p {
+    font-size: 14px;
+    color: #555;
+}
+
+/* Responsive Design */
+@media (max-width: 600px) {
+    .help-container {
+        width: 90%;
+        padding: 15px;
+    }
+}

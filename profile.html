@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile - Cruise Cabs</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="profile-styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=UberMove:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="header-left">
+            <a href="Homepage.html" class="back-button">
+                <i class="fas fa-arrow-left"></i>
+            </a>
+            <div class="logo">
+                <span class="logo-text">Cruise Cabs</span>
+            </div>
+        </div>
+    </header>
+
+    <!-- Profile Content -->
+    <main class="profile-container">
+        <div class="profile-header">
+            <div class="profile-avatar">
+                <i class="fas fa-user-circle"></i>
+            </div>
+            <h1>Your Profile</h1>
+        </div>
+
+        <div class="profile-sections">
+            <!-- Personal Information -->
+            <section class="profile-section">
+                <h2>Personal Information</h2>
+                <div class="info-group">
+                    <div class="info-item">
+                        <label>Name</label>
+                        <p>Akshath Kheria</p>
+                        <button class="edit-btn"><i class="fas fa-pen"></i></button>
+                    </div>
+                    <div class="info-item">
+                        <label>Phone</label>
+                        <p>+91 8240840591</p>
+                        <button class="edit-btn"><i class="fas fa-pen"></i></button>
+                    </div>
+                    <div class="info-item">
+                        <label>Email</label>
+                        <p>akshathkheria196@gmail.com</p>
+                        <button class="edit-btn"><i class="fas fa-pen"></i></button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Payment Methods -->
+            <section class="profile-section">
+                <h2>Payment Methods</h2>
+                <div class="payment-cards">
+                    <div class="payment-card">
+                        <i class="fas fa-credit-card"></i>
+                        <div class="card-details">
+                            <p>•••• •••• •••• 1234</p>
+                            <span>Expires 12/25</span>
+                        </div>
+                        <button class="edit-btn"><i class="fas fa-ellipsis-v"></i></button>
+                    </div>
+                    <button class="add-payment-btn">
+                        <i class="fas fa-plus"></i>
+                        Add Payment Method
+                    </button>
+                </div>
+            </section>
+
+            <!-- Recent Trips -->
+            <section class="profile-section">
+                <h2>Recent Trips</h2>
+                <div class="trips-list">
+                    <!-- Trips will be dynamically inserted here -->
+                </div>
+                <a href="ride-history.html" class="view-all-btn">View All Trips</a>
+            </section>
+        </div>
+    </main>
+</body>
+</html> 

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Settings</title>
+    <link rel="stylesheet" href="Settings.css"> <!-- Link to your main CSS -->
+</head>
+<body>
+
+    <header>
+        <h2>Settings</h2>
+        <a href="Homepage.html">← Back to Home</a>
+    </header>
+
+    <main>
+        <section>
+            <h3>Account Settings</h3>
+            <p>Update your profile, email, and phone number.</p>
+            <button>Edit Profile</button>
+        </section>
+
+        <section>
+            <h3>Notifications</h3>
+            <p>Manage push and email notifications.</p>
+            <label>
+                <input type="checkbox" checked> Ride Updates
+            </label>
+            <label>
+                <input type="checkbox"> Promotions
+            </label>
+        </section>
+
+        <section>
+            <h3>Privacy & Security</h3>
+            <p>Control what information you share.</p>
+            <button>Manage Privacy</button>
+        </section>
+
+        <section>
+            <h3>Payment Settings</h3>
+            <p>Manage your payment methods and transactions.</p>
+            <button>Update Payment</button>
+        </section>
+
+        <section>
+            <h3>Logout</h3>
+            <button onclick="logout()">Logout</button>
+        </section>
+    </main>
+
+    <script>
+        function logout() {
+            alert("You have been logged out!");
+            window.location.href = "login.html"; // Redirect to login page
+        }
+    </script>
+
+</body>
+</html>
